@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bbt757.android.acmobileandroidzebra">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <permission
+        android:name="com.bbt757.android.acmobileandroidzebra.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.bbt757.android.acmobileandroidzebra.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
+    <application
+        android:name=".util.ACMobileApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/app_icon_beta"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activity.SplashActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".activity.NavigationActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".activity.AccountChangeActivity" />
+        <activity android:name=".activity.InformationActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout" />
+        <activity android:name=".activity.LinkActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"/>
+        <activity android:name=".activity.CourseSelectionActivity" />
+        <!--<activity android:name=".activity.HomeItemDetailActivity" />-->
+        <activity android:name=".activity.MenuItemDetailActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"/>
+        <activity android:name=".activity.CourseItemActivity" />
+        <activity android:name=".activity.WebViewActivity"
+            android:configChanges="keyboardHidden|screenLayout|screenSize|orientation" />
+        <activity android:name=".activity.OpenLinksActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout" />
+        <activity android:name=".activity.NotificationsActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout" />
+        <activity android:name=".activity.DiscussionActivity"
+            android:configChanges="orientation|screenSize"/>
+        <activity android:name=".activity.MessageReplyActivity"
+            android:configChanges="orientation|screenSize"/>
+        <activity android:name=".activity.PostMessageActivity"
+            android:configChanges="orientation|screenSize"/>
+        <activity android:name=".activity.FileManagerActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+             />
+        <activity
+            android:name=".activity.SupportActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activity.EnqueteActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout" />
+        <activity
+            android:name=".activity.VideoPlayerActivity"
+            android:configChanges="keyboard|keyboardHidden|screenSize|orientation"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="com.bbt757.android.acmobileandroidzebra.activitty.SoundPlayerActivity.VIDEO_PLAY_FINISH" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.ToolsActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"/>
+        <activity
+            android:name=".activity.OatVideoPlayer"
+            android:configChanges="keyboard|keyboardHidden|screenSize|orientation"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="com.bbt757.android.acmobile.activitty.SoundPlayer.VIDEO_PLAY_FINISH" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.ArchiveActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
+
+        <provider
+            android:name=".provider.FileProvider"
+            android:authorities="com.bbt757.fileproviderzebra"></provider>
+        <provider
+            android:name=".provider.FileManagerProvider"
+            android:authorities="com.bbt757.filemanagerzebra"></provider>
+        <provider
+            android:name=".provider.AttachFileProvider"
+            android:authorities="com.bbt757.attachfile_zebra"
+            android:exported="true"></provider>
+        <provider
+            android:name=".provider.BitDataProvider"
+            android:authorities="com.bbt757.bitdatazebra"></provider>
+        <provider
+            android:name=".provider.TxBitDataProvider"
+            android:authorities="com.bbt757.txbitdatazebra"></provider>
+        <provider
+            android:name=".provider.MessageProvider"
+            android:authorities="com.bbt757.message_zebra"></provider>
+        <provider
+            android:name=".provider.MessageAttachProvider"
+            android:authorities="com.bbt757.messageattach_zebra"></provider>
+        <provider
+            android:name=".provider.AccountProvider"
+            android:authorities="com.bbt757.accountzebra"></provider>
+        <provider
+            android:name=".provider.SearchVideoProvider"
+            android:authorities="com.bbt757.searchvideos_zebra"></provider>
+        <provider
+            android:name=".provider.VideoMaterialProvider"
+            android:authorities="com.bbt757.video_material_zebra"></provider>
+        <provider
+            android:name=".provider.AttachVideoMaterialProvider"
+            android:authorities="com.bbt757.attachvideomaterial_zebra"
+            android:exported="true"></provider>
+
+        <service
+            android:name=".service.VideoDownloadService"
+            android:process=":downloadService"></service>
+        <service android:name=".service.MessagePostService"></service>
+
+        <receiver android:name=".receiver.AuthSyncReceiver">
+            <intent-filter>
+                <action android:name="com.bbt757.android.acmobileandroidzebra.receiver.AuthSyncReceiver.AUTHSYNC_NOTIFICATION" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".receiver.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+
+                <!-- Receives the actual messages. -->
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <!-- Receives the registration id. -->
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.bbt757.android.acmobileandroidzebra" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".service.SoundPlayerService"
+            android:process=":soundplayerService">
+            <intent-filter>
+                <action android:name="com.bbt757.android.acmobile.service.SoundPlayerService.PAUSE" />
+                <action android:name="com.bbt757.android.acmobile.service.SoundPlayerService.PLAY" />
+                <action android:name="com.bbt757.android.acmobile.service.SoundPlayerService.VIDEO" />
+            </intent-filter>
+        </service>
+        <!-- New Push Using Google Cloud Messaging -->
+        <service
+            android:name=".service.GcmNotificationListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        <!--
+     ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+    </application>
+
+</manifest>
